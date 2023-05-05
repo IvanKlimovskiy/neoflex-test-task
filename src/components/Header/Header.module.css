@@ -1,4 +1,5 @@
 .header {
+  box-sizing: border-box;
   max-width: 1110px;
   margin: 0 auto;
   padding: 15px 0;
@@ -21,9 +22,29 @@
 }
 
 .favourites {
+  position: relative;
   display: block;
 }
 
 .cart {
+  position: relative;
   display: block;
+}
+
+.counter {
+  left: 15px;
+  top: -9px;
+  text-align: center;
+  font-size: 15px;
+  color: #fff;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #FFA542;
+  position: absolute;
+}
+
+.icon {
+  width: 23px;
+  height: 23px;
 }

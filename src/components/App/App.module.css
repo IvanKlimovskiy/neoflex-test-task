@@ -6,6 +6,7 @@
 }
 
 .content {
+  min-height: calc(100vh - 225px);
   max-width: 1110px;
   margin: 0 auto;
 }

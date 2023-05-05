@@ -1,0 +1,60 @@
+.footer {
+  border-radius: 30px 30px 0 0;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto 0;
+  max-width: 1110px;
+}
+
+.list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.iconsList {
+  display: flex;
+  width: 100%;
+  max-width: 126px;
+  justify-content: space-between;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.item {
+  font-weight: 400;
+  font-size: 17px;
+}
+
+.logo {
+  margin: 0;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.languageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wrapper {
+  max-width: 111px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.langLink {
+  color: #101010;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+}

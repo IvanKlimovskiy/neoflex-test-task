@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
-p {
+p, h1, h2 {
   margin: 0;
+}
+
+ul {
+  margin: 0;
+  list-style: none;
 }
