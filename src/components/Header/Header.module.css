@@ -21,6 +21,11 @@
   font-size: 25px;
 }
 
+.logoLink {
+  text-decoration: none;
+  color: #000;
+}
+
 .favourites {
   position: relative;
   display: block;

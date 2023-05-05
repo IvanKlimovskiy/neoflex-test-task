@@ -1,8 +1,12 @@
 import { headphones } from "../../data/data";
 import styles from "./Headphones.module.css";
 import star from "../../assets/star.svg";
+import { useDispatch } from "react-redux";
+import { ADD_HEADPHONES_TO_CART } from "../../services/actions/AddHeadphones";
 
 const Headphones = () => {
+  const dispatch = useDispatch();
+
   const headphonesList = headphones.map((item) => {
     if (!item.isWireless) {
       return (
@@ -27,7 +31,17 @@ const Headphones = () => {
                 <img src={star} alt="Рейтинг" />
                 <p>{item.rate}</p>
               </div>
-              <button className={styles.button}>Купить</button>
+              <button
+                onClick={() => {
+                  dispatch({
+                    type: ADD_HEADPHONES_TO_CART,
+                    headphones: item,
+                  });
+                }}
+                className={styles.button}
+              >
+                Купить
+              </button>
             </div>
           </div>
         </li>
@@ -60,7 +74,17 @@ const Headphones = () => {
                 <img src={star} alt="Рейтинг" />
                 <p>{item.rate}</p>
               </div>
-              <button className={styles.button}>Купить</button>
+              <button
+                onClick={() => {
+                  dispatch({
+                    type: ADD_HEADPHONES_TO_CART,
+                    headphones: item,
+                  });
+                }}
+                className={styles.button}
+              >
+                Купить
+              </button>
             </div>
           </div>
         </li>
@@ -80,9 +104,7 @@ const Headphones = () => {
       </section>
       <section className={styles.headphones}>
         <h2 className={styles.title}>Беспроводные наушники</h2>
-        <ul className={styles.headphonesList}>
-          {wirelessHeadphonesList}
-        </ul>
+        <ul className={styles.headphonesList}>{wirelessHeadphonesList}</ul>
       </section>
     </>
   );
