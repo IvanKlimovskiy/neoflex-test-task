@@ -1,0 +1,29 @@
+.header {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo {
+  margin: 0;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.favourites {
+  display: block;
+}
+
+.cart {
+  display: block;
+}
