@@ -4,6 +4,7 @@
   margin: 0 0 20px;
   font-size: 20px;
 }
+
 .headphones {
   margin-top: 28px;
 }
@@ -17,9 +18,8 @@
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
-  grid-template-rows: 1fr 1fr;
-  gap: 30px
+  grid-template-columns: repeat(auto-fill, 350px);
+  gap: 30px;
 }
 
 .headphonesItem {
@@ -36,6 +36,7 @@
 .name {
   font-weight: 600;
   font-size: 17px;
+  margin: 0;
 }
 
 .descriptionWrapper {
@@ -43,12 +44,49 @@
   margin-top: 54px;
 }
 
-.headingWrapper, .bottomWrapper {
+.headingWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.bottomWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .rating {
+  width: 100%;
+  max-width: 60px;
+  justify-content: space-between;
   display: flex;
+  align-items: center;
+}
+
+.priceWrapper {
+  position: relative;
+}
+
+.price {
+  color: #FFA542;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.oldPrice {
+  left: 10px;
+  text-decoration: line-through;
+  font-size: 13px;
+  color: #FFCE7F;
+  position: absolute;
+}
+
+.button {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 17px;
+  background-color: inherit;
+  border: none;
 }
