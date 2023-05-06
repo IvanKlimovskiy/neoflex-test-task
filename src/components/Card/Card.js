@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import styles from "./Card.module.css";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Card = ({ element }) => {
-  const [counter, setCounter] = useState(1);
-  const [totalPrice, setTotalPrice] = useState(element.price);
+  const { counter, totalPrice } = useSelector(
+    (store) => store.headphonesById[element.id]
+  );
 
   const dispatch = useDispatch();
 
@@ -17,11 +17,11 @@ const Card = ({ element }) => {
           <div className={styles.buttonsWrapper}>
             <button
               onClick={() => {
-                setCounter((counter) => counter - 1);
-                setTotalPrice((totalPrice) => totalPrice - element.price);
                 dispatch({
                   type: "DECREASE_TOTAL_PRICE",
                   headphonesPrice: element.price,
+                  headphonesId: element.id,
+                  price: element.price,
                 });
               }}
               type="button"
@@ -31,11 +31,11 @@ const Card = ({ element }) => {
             <span className={styles.counter}>{counter}</span>
             <button
               onClick={() => {
-                setCounter((counter) => counter + 1);
-                setTotalPrice((totalPrice) => totalPrice + element.price);
                 dispatch({
                   type: "INCREASE_TOTAL_PRICE",
                   headphonesPrice: element.price,
+                  headphonesId: element.id,
+                  price: element.price,
                 });
               }}
               type="button"
