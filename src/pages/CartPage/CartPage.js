@@ -1,14 +1,25 @@
-import styles from "./Cart.module.css";
-import Card from "../Card/Card";
-import { useSelector } from "react-redux";
+import styles from "./CartPage.module.css";
+import CartHeadphonesItem from "../../components/CartHeadphonesItem/CartHeadphonesItem";
+import {useSelector} from "react-redux";
+import {useMemo} from "react";
 
-const Cart = () => {
-  const { headphonesCounter, totalPrice, headphones } = useSelector(
-    (store) => store
-  );
+const CartPage = () => {
+  const headphones = useSelector(store => store.headphones.headphones);
+
+  const totalPrice = useMemo(() => {
+    return headphones.reduce((accum, {counter, price}) => {
+      if (counter === 1) {
+        return accum + price;
+      } else if (counter > 1) {
+        return accum + price * counter;
+      } else {
+        return 0;
+      }
+    }, 0)
+  }, [headphones])
 
   const headphonesList = headphones.map((element) => {
-    return <Card key={element.id} element={element} />;
+    return <CartHeadphonesItem key={element.id} element={element}/>;
   });
 
   return (
@@ -16,7 +27,7 @@ const Cart = () => {
       <h3 className={styles.title}>Корзина</h3>
       <div className={styles.cart}>
         <div className={styles.cardsWrapper}>
-          {headphonesCounter === 0 ? (
+          {headphones.length === 0 ? (
             <p className={styles.emptyCart}>Корзина пуста</p>
           ) : (
             headphonesList
@@ -34,4 +45,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartPage;

@@ -1,43 +1,44 @@
 import classNames from "classnames";
-import styles from "./Card.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import styles from "./CartHeadphonesItem.module.css";
+import {useDispatch, useSelector} from "react-redux";
+import {
+  increaseHeadphonesCounter,
+  removeHeadphonesFromCart,
+  decreaseHeadphonesCounter
+} from "../../services/reducer/headphonesSlice";
 
-const Card = ({ element }) => {
-  const { counter, totalPrice } = useSelector(
-    (store) => store.headphonesById[element.id]
-  );
+const CartHeadphonesItem = ({element}) => {
 
+  const headphones = useSelector(store => store.headphones.headphones);
+  const counter = headphones.find(({id}) => id === element.id).counter;
+  const totalPrice = element.price * counter
   const dispatch = useDispatch();
+
+  const handleIncreaseCounter = () => {
+    dispatch(increaseHeadphonesCounter(element.id))
+  }
+  const handleDecreaseCounter = () => {
+    dispatch(decreaseHeadphonesCounter(element.id))
+  }
+  const handleRemoveHeadphones = () => {
+    dispatch(removeHeadphonesFromCart(element.id))
+  }
 
   return (
     <div key={element.id} className={styles.card}>
       <div className={styles.wrapperCard}>
         <div className={styles.imageWrapper}>
-          <img className={styles.image} src={element.img} alt={element.title} />
+          <img className={styles.image} src={element.img} alt={element.title}/>
           <div className={styles.buttonsWrapper}>
             <button
-              onClick={() => {
-                dispatch({
-                  type: "DECREASE_TOTAL_PRICE",
-                  headphonesPrice: element.price,
-                  headphonesId: element.id,
-                  price: element.price,
-                });
-              }}
+              onClick={handleDecreaseCounter}
               type="button"
               aria-label="Уменьшить количество товаров"
               className={classNames(styles.button, styles.decrease)}
             />
             <span className={styles.counter}>{counter}</span>
             <button
-              onClick={() => {
-                dispatch({
-                  type: "INCREASE_TOTAL_PRICE",
-                  headphonesPrice: element.price,
-                  headphonesId: element.id,
-                  price: element.price,
-                });
-              }}
+              onClick={handleIncreaseCounter}
               type="button"
               aria-label="Увеличить количество товаров"
               className={classNames(styles.button, styles.increase)}
@@ -51,6 +52,7 @@ const Card = ({ element }) => {
       </div>
       <div className={styles.wrapper}>
         <button
+          onClick={handleRemoveHeadphones}
           type="button"
           className={styles.trash}
           aria-label="Удалить товар"
@@ -61,4 +63,4 @@ const Card = ({ element }) => {
   );
 };
 
-export default Card;
+export default CartHeadphonesItem;

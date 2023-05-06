@@ -1,11 +1,10 @@
 import styles from "./App.module.css";
 import Header from "../Header/Header";
-import Headphones from "../Headphones/Headphones";
 import Footer from "../Footer/Footer";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Cart from "../Cart/Cart";
-import { useEffect, useState } from "react";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {useEffect, useState} from "react";
 import Spinner from "../Spinner/Spinner";
+import {MainPage, CartPage} from "../../pages";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -22,20 +21,20 @@ const App = () => {
 
   return loading ? (
     <div className={styles.loading}>
-      <Spinner />
+      <Spinner/>
       <p className={styles.loadingText}>Загрузка</p>
     </div>
   ) : (
     <Router>
       <div className={styles.root}>
-        <Header />
+        <Header/>
         <main className={styles.content}>
           <Routes>
-            <Route path={"/"} element={<Headphones />} />
-            <Route path={"/cart"} element={<Cart />} />
+            <Route path={"/"} element={<MainPage/>}/>
+            <Route path={"/cart"} element={<CartPage/>}/>
           </Routes>
         </main>
-        <Footer />
+        <Footer/>
       </div>
     </Router>
   );

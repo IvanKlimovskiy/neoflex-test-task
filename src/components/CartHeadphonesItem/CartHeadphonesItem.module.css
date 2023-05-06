@@ -32,10 +32,12 @@
 }
 
 .decrease {
+  background-color: rgba(0, 0, 0, 0);
   background-image: url("../../assets/minus.svg");
 }
 
 .increase {
+  background-color: rgba(0, 0, 0, 0);
   background-image: url("../../assets/plus.svg");
 }
 
@@ -78,6 +80,7 @@
 }
 
 .trash {
+  background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
   margin: 0;
   padding: 0;
