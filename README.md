@@ -1,1 +1,1 @@
-Проект с использованием следующиъ технологий: React, Module CSS, Redux(toolkit)
+Проект с использованием следующих технологий: React, Module CSS, Redux(toolkit)
